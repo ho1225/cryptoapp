@@ -7,6 +7,7 @@ import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCi
 
 import { useGetCryptoDetailsQuery, useGetCryptosQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi';
 import LineChart from './LineChart';
+import { useEffect } from 'react';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -15,11 +16,22 @@ const CryptoDetails = () => {
   const { coinId } = useParams();
   const { data: cryptosList } = useGetCryptosQuery(100);
   const [ timeperiod, setTimeperiod ] = useState('7d');
+  // const [ tempCryptosList, setTempCryptosList ] = useState();
+  // useEffect(() => {
+  //   if(cryptosList) {
+  //     setTempCryptosList([cryptosList]);
+  //   }
+  // },[cryptosList])
+  // if(cryptosList){
+  console.log("cryptosList", cryptosList)
+  const tempId = cryptosList ? cryptosList.data.coins[coinId-1].uuid : coinId
   const { data, isFetching } = useGetCryptoDetailsQuery(cryptosList ? cryptosList.data.coins[coinId-1].uuid : coinId);
-  const { data: coinHistory } = useGetCryptoDetailsQuery({coinId, timeperiod});
+  const { data: coinHistory } = useGetCryptoHistoryQuery({tempId, timeperiod});
   const cryptoDetails =data?.data?.coin;
 
   if (isFetching) return "Loading...";
+  
+  
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
@@ -52,7 +64,7 @@ const CryptoDetails = () => {
               </p>
           </Col>
           <Select 
-              defaultValue="7d" 
+              defaultValue="7d"
               className="select-timeperiod" 
               placeholder="Select Time Period" 
               onChange={(value) => setTimeperiod(value)}

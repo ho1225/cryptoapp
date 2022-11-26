@@ -20,7 +20,14 @@ export const cryptoApi = createApi({
             query: (coinId) => createRequest(`/coin/${coinId}`),
         }),
         getCryptoHistory: builder.query({
-            query: ({coinId, timeperiod }) => createRequest(`/coin/${coinId}/history?timeperiod=${timeperiod}`),
+            query: ({coinId, timeperiod }) => {
+                console.log("call history api")
+                return {
+                    headers: cryptoApiHeaders,
+                    url: `/coin/${coinId}`,
+                    params: {'timePeriod': '24h'},
+                }
+            } //createRequest(`/coin/${coinId}/history?timeperiod=${timeperiod}`),
         })
     })
 });
