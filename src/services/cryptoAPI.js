@@ -28,13 +28,18 @@ export const cryptoApi = createApi({
                     params: {'timePeriod': '24h'},
                 }
             } //createRequest(`/coin/${coinId}/history?timeperiod=${timeperiod}`),
-        })
+        }),
+        getExchanges: builder.query({
+            query: () => createRequest('/exchanges'),
+        }),
+
     })
 });
 
 export const {
     useGetCryptosQuery, 
     useGetCryptoDetailsQuery,
+    useGetExchangesQuery,
     useGetCryptoHistoryQuery
 } = cryptoApi;
 
