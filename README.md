@@ -1,4 +1,15 @@
 State Management using Redux Toolkit, UI Creation using Ant Design, creating charts using Chart.js, and fetching data from multiple sources using RapidAPI while building a Cryptocurrency App
+
+## Screenshots
+![image](https://github.com/ho1225/cryptoapp-react/assets/56968144/e8e8fa4b-4465-4489-bbbc-6f05e087d2a0)  
+![image](https://github.com/ho1225/cryptoapp-react/assets/56968144/6d925e60-f3f4-4683-bc30-8bd4435860bb)  
+![image](https://github.com/ho1225/cryptoapp-react/assets/56968144/f0c3cc8a-e5c4-49bf-a6b9-05f7e431aad8)  
+![image](https://github.com/ho1225/cryptoapp-react/assets/56968144/87625e42-a7b5-4f8a-ad42-c33159f327d0)  
+![image](https://github.com/ho1225/cryptoapp-react/assets/56968144/2eda3e0a-f427-475f-94eb-efa678701487)  
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
